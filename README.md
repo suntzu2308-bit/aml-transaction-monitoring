@@ -2,7 +2,18 @@
 
 An educational, reproducible **Python + SQL** transaction-monitoring prototype. It validates a synthetic transaction dataset, applies two explainable detection rules, generates review alerts, and documents a human investigation workflow.
 
-**This is not a deployed compliance system. Alerts are indicators requiring review, not findings of wrongdoing.**
+**This is an educational dashboard, not a deployed compliance system. Alerts are indicators requiring review, not findings of wrongdoing.**
+
+## Interactive investigation dashboard
+
+Install and run locally:
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+The dashboard provides alert filters, explainable risk indicators, account history, charts, and filtered CSV export. It does not persist investigation decisions or provide a production case-management system. Public Streamlit deployment is pending.
 
 ## Quick start
 Python 3.10+; no external packages required. From the repository root:
@@ -15,6 +26,8 @@ python -m unittest discover -s tests -v
 The script generates `output/alerts.json` with transaction IDs, account IDs, risk scores, indicators and human-review dispositions.
 
 ## Repository structure
+- `app.py`: interactive Streamlit alert triage dashboard
+- `requirements.txt`: dashboard dependencies
 - `data/transactions.csv`: fabricated accounts and transfers
 - `src/monitor.py`: CSV validation, rule evaluation, explainable alerts and JSON export
 - `sql/detection_rules.sql`: equivalent detection concepts for SQLite
@@ -31,7 +44,7 @@ The fabricated sample is designed to produce **four alerts**: T002, T003, T004 a
 Required columns, missing values, duplicate transaction IDs, direction, timestamp and positive finite amounts are checked. The code uses Python's standard library. SQL is supplied as a separate query example; production SQL/Python parity and database integration remain future work.
 
 ## Limitations and next steps
-This prototype lacks customer baselines, KYC/CDD context, beneficial ownership, sanctions screening, transaction networks, investigation case management, analyst feedback and jurisdiction-specific regulatory logic. Thresholds are **not** compliance advice. Potential enhancements include risk segmentation, precision/recall testing on labeled synthetic cases, SQL integration, CI, and analyst dashboards.
+This prototype lacks customer baselines, KYC/CDD context, beneficial ownership, sanctions screening, transaction networks, investigation case management, analyst feedback and jurisdiction-specific regulatory logic. Thresholds are **not** compliance advice. Potential enhancements include risk segmentation, precision/recall testing on labeled synthetic cases, SQL integration, persistence of analyst decisions, and case-management integration.
 
 ## Privacy and license
 All data is fabricated. No private customer information, API keys, confidential algorithms or actual SARs are included. MIT licensed.
