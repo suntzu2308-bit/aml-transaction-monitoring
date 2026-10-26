@@ -17,7 +17,9 @@ class SQLParityTests(unittest.TestCase):
             db.executemany("INSERT INTO transactions VALUES (:transaction_id,:account_id,:timestamp,:amount_usd,:direction,:country,:counterparty_id)", raw)
             script = (ROOT / "sql/detection_rules.sql").read_text(encoding="utf-8")
             found = set()
-            for statement in script.split(";"):
+            sql_only = "\n".join(line for line in script.splitlines()
+                                 if not line.lstrip().startswith("--"))
+            for statement in sql_only.split(";"):
                 if statement.strip():
                     for tx_id, account, amount, indicator in db.execute(statement):
                         found.add((tx_id, indicator))
