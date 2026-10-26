@@ -4,6 +4,18 @@ An educational, reproducible **Python + SQL** transaction-monitoring prototype. 
 
 **This is an educational dashboard, not a deployed compliance system. Alerts are indicators requiring review, not findings of wrongdoing.**
 
+## Dashboard screenshots
+
+Screenshots of the live educational AML dashboard, including alert summaries, transaction monitoring visuals, and investigation details. All records and indicators are synthetic.
+
+![AML dashboard screenshot 1](Screenshot_20261026_055618_Chrome.jpg)
+
+![AML dashboard screenshot 2](Screenshot_20261026_055635_Chrome.jpg)
+
+![AML dashboard screenshot 3](Screenshot_20261026_055654_Chrome.jpg)
+
+![AML dashboard screenshot 4](Screenshot_20261026_055711_Chrome.jpg)
+
 ## Business question
 How can a compliance analyst identify and prioritize explainable transaction-monitoring indicators for human review while preserving an auditable detection trail?
 
