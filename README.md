@@ -4,6 +4,15 @@ An educational, reproducible **Python + SQL** transaction-monitoring prototype. 
 
 **This is an educational dashboard, not a deployed compliance system. Alerts are indicators requiring review, not findings of wrongdoing.**
 
+## Business question
+How can a compliance analyst identify and prioritize explainable transaction-monitoring indicators for human review while preserving an auditable detection trail?
+
+## Demonstrated deliverable
+A synthetic alert-triage dashboard with documented detection rules, transaction-level evidence, account filters, and CSV export. The rules illustrate review workflows; they do not establish criminal conduct or regulatory reporting obligations.
+
+## Engineering verification
+**7 automated tests** cover alert expectations, transaction-validation failures, threshold boundaries, and SQLite-to-Python rule parity. GitHub Actions runs the test suite and pipeline on each push and pull request.
+
 ## Interactive investigation dashboard
 
 **[Launch the live AML dashboard](https://aml-transaction-monitoring-ygmghh7wwlxhw3eeccywcw.streamlit.app/)** · [View source code](https://github.com/suntzu2308-bit/aml-transaction-monitoring)
@@ -33,7 +42,7 @@ The script generates `output/alerts.json` with transaction IDs, account IDs, ris
 - `data/transactions.csv`: fabricated accounts and transfers
 - `src/monitor.py`: CSV validation, rule evaluation, explainable alerts and JSON export
 - `sql/detection_rules.sql`: equivalent detection concepts for SQLite
-- `tests/test_monitor.py`: regression tests for positive and negative examples
+- `tests/test_monitor.py` and `tests/test_sql_parity.py`: detection regression and SQLite parity tests
 - `docs/investigation_workflow.md`: triage, investigation, escalation and limitations
 
 ## Illustrative rules and findings
@@ -43,7 +52,7 @@ The script generates `output/alerts.json` with transaction IDs, account IDs, ris
 The fabricated sample is designed to produce **four alerts**: T002, T003, T004 and T007. This is an expected synthetic test fixture, not a real-world detection result. Scores are explanatory demo values, **not validated probability estimates**.
 
 ## Data quality and reproducibility
-Required columns, missing values, duplicate transaction IDs, direction, timestamp and positive finite amounts are checked. The code uses Python's standard library. SQL is supplied as a separate query example; production SQL/Python parity and database integration remain future work.
+Required columns, missing values, duplicate transaction IDs, direction, timestamp and positive finite amounts are checked. The code uses Python's standard library. SQLite detection results are checked against the Python implementation on the synthetic fixture. Production-scale database integration, monitoring validation, and performance evaluation remain future work.
 
 ## Limitations and next steps
 This prototype lacks customer baselines, KYC/CDD context, beneficial ownership, sanctions screening, transaction networks, investigation case management, analyst feedback and jurisdiction-specific regulatory logic. Thresholds are **not** compliance advice. Potential enhancements include risk segmentation, precision/recall testing on labeled synthetic cases, SQL integration, persistence of analyst decisions, and case-management integration.
