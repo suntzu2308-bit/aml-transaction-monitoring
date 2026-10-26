@@ -6,6 +6,8 @@ An educational, reproducible **Python + SQL** transaction-monitoring prototype. 
 
 ## Interactive investigation dashboard
 
+**[Launch the live AML dashboard](https://aml-transaction-monitoring-ygmghh7wwlxhw3eeccywcw.streamlit.app/)** · [View source code](https://github.com/suntzu2308-bit/aml-transaction-monitoring)
+
 Install and run locally:
 
 ```bash
@@ -13,7 +15,7 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-The dashboard provides alert filters, explainable risk indicators, account history, charts, and filtered CSV export. It does not persist investigation decisions or provide a production case-management system. Public Streamlit deployment is pending.
+The dashboard provides alert filters, explainable risk indicators, account history, charts, and filtered CSV export. It does not persist investigation decisions or provide a production case-management system. The educational dashboard is deployed publicly on Streamlit Community Cloud.
 
 ## Quick start
 Python 3.10+; no external packages required. From the repository root:
